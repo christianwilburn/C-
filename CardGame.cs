@@ -1,95 +1,279 @@
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace CardGame
 {
-    public partial class Form1 : Form
+    partial class Form1
     {
-        private List<Image> cardImages;  // List of card images
-        private List<string> cardNames;  // List of card names
-        private List<PictureBox> topCards;  // Holds the top row of cards
-        private List<PictureBox> bottomCards;  // Holds the bottom row of cards
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-        public Form1()
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
         {
-            InitializeComponent();
-            LoadCardImages();
-            InitializeGame();
-        }
-
-        // Load card images and names into lists
-        private void LoadCardImages()
-        {
-            cardImages = new List<Image>
+            if (disposing && (components != null))
             {
-                Properties.Resources.Card1,  // Add your card images here
-                Properties.Resources.Card2,
-                Properties.Resources.Card3,
-                Properties.Resources.Card4,
-                Properties.Resources.Card5,
-                Properties.Resources.Card6,
-                Properties.Resources.Card7,
-                Properties.Resources.Card8,
-                Properties.Resources.Card9,
-                Properties.Resources.Card10
-            };
-
-            cardNames = new List<string>
-            {
-                "Card 1",
-                "Card 2",
-                "Card 3",
-                "Card 4",
-                "Card 5",
-                "Card 6",
-                "Card 7",
-                "Card 8",
-                "Card 9",
-                "Card 10"
-            };
-        }
-
-        // Initialize the game and set up event handlers for picture boxes
-        private void InitializeGame()
-        {
-            // Add top and bottom cards to lists
-            topCards = new List<PictureBox> { pictureBox1, pictureBox2, pictureBox3, pictureBox4, pictureBox5 };
-            bottomCards = new List<PictureBox> { pictureBox6, pictureBox7, pictureBox8, pictureBox9, pictureBox10 };
-
-            // Set click event for each PictureBox (top row only should display cards)
-            for (int i = 0; i < topCards.Count; i++)
-            {
-                int index = i;  // Prevent closure issue with for loop
-                topCards[i].Click += (sender, e) => ShowCard(index);
+                components.Dispose();
             }
-
-            label1.Text = "Click a card to reveal it!";
-            label2.Text = "";
+            base.Dispose(disposing);
         }
 
-        // Show the card when a PictureBox is clicked and display the card name
-        private void ShowCard(int index)
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
         {
-            topCards[index].Image = cardImages[index];  // Show the image behind the card
-            label2.Text = cardNames[index];  // Display the card name in the second label
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
+            this.labelDirections = new System.Windows.Forms.Label();
+            this.labelCardName = new System.Windows.Forms.Label();
+            this.pictureBoxBottom5 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTop5 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxBottom4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTop4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxBottom3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTop3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxBottom2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTop2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxBottom1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTop1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBottom5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTop5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBottom4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTop4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBottom3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTop3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBottom2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTop2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBottom1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTop1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(175, 300);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(75, 23);
+            this.buttonReset.TabIndex = 10;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            // 
+            // buttonExit
+            // 
+            this.buttonExit.Location = new System.Drawing.Point(464, 300);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(75, 23);
+            this.buttonExit.TabIndex = 11;
+            this.buttonExit.Text = "Exit";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            // 
+            // labelDirections
+            // 
+            this.labelDirections.AutoSize = true;
+            this.labelDirections.Location = new System.Drawing.Point(310, 30);
+            this.labelDirections.Name = "labelDirections";
+            this.labelDirections.Size = new System.Drawing.Size(110, 13);
+            this.labelDirections.TabIndex = 12;
+            this.labelDirections.Text = "Click Card to reveal it.";
+            // 
+            // labelCardName
+            // 
+            this.labelCardName.AutoSize = true;
+            this.labelCardName.Location = new System.Drawing.Point(310, 310);
+            this.labelCardName.Name = "labelCardName";
+            this.labelCardName.Size = new System.Drawing.Size(60, 13);
+            this.labelCardName.TabIndex = 13;
+            this.labelCardName.Text = "Card Name";
+            this.labelCardName.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // pictureBoxBottom5
+            // 
+            this.pictureBoxBottom5.Image = global::M2Form.Properties.Resources.Backface_Red;
+            this.pictureBoxBottom5.Location = new System.Drawing.Point(561, 83);
+            this.pictureBoxBottom5.Name = "pictureBoxBottom5";
+            this.pictureBoxBottom5.Size = new System.Drawing.Size(100, 125);
+            this.pictureBoxBottom5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxBottom5.TabIndex = 9;
+            this.pictureBoxBottom5.TabStop = false;
+            // 
+            // pictureBoxTop5
+            // 
+            this.pictureBoxTop5.Image = global::M2Form.Properties.Resources.Ace_Spades;
+            this.pictureBoxTop5.Location = new System.Drawing.Point(561, 83);
+            this.pictureBoxTop5.Name = "pictureBoxTop5";
+            this.pictureBoxTop5.Size = new System.Drawing.Size(100, 125);
+            this.pictureBoxTop5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxTop5.TabIndex = 8;
+            this.pictureBoxTop5.TabStop = false;
+            // 
+            // pictureBoxBottom4
+            // 
+            this.pictureBoxBottom4.Image = global::M2Form.Properties.Resources.Backface_Red;
+            this.pictureBoxBottom4.Location = new System.Drawing.Point(439, 83);
+            this.pictureBoxBottom4.Name = "pictureBoxBottom4";
+            this.pictureBoxBottom4.Size = new System.Drawing.Size(100, 125);
+            this.pictureBoxBottom4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxBottom4.TabIndex = 7;
+            this.pictureBoxBottom4.TabStop = false;
+            this.pictureBoxBottom4.Click += new System.EventHandler(this.pictureBox8_Click);
+            // 
+            // pictureBoxTop4
+            // 
+            this.pictureBoxTop4.Image = global::M2Form.Properties.Resources.Queen_Hearts;
+            this.pictureBoxTop4.Location = new System.Drawing.Point(439, 83);
+            this.pictureBoxTop4.Name = "pictureBoxTop4";
+            this.pictureBoxTop4.Size = new System.Drawing.Size(100, 125);
+            this.pictureBoxTop4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxTop4.TabIndex = 6;
+            this.pictureBoxTop4.TabStop = false;
+            // 
+            // pictureBoxBottom3
+            // 
+            this.pictureBoxBottom3.Image = global::M2Form.Properties.Resources.Backface_Red;
+            this.pictureBoxBottom3.Location = new System.Drawing.Point(313, 83);
+            this.pictureBoxBottom3.Name = "pictureBoxBottom3";
+            this.pictureBoxBottom3.Size = new System.Drawing.Size(92, 125);
+            this.pictureBoxBottom3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxBottom3.TabIndex = 5;
+            this.pictureBoxBottom3.TabStop = false;
+            // 
+            // pictureBoxTop3
+            // 
+            this.pictureBoxTop3.Image = global::M2Form.Properties.Resources.King_Diamonds;
+            this.pictureBoxTop3.Location = new System.Drawing.Point(313, 83);
+            this.pictureBoxTop3.Name = "pictureBoxTop3";
+            this.pictureBoxTop3.Size = new System.Drawing.Size(92, 125);
+            this.pictureBoxTop3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxTop3.TabIndex = 4;
+            this.pictureBoxTop3.TabStop = false;
+            // 
+            // pictureBoxBottom2
+            // 
+            this.pictureBoxBottom2.Image = global::M2Form.Properties.Resources.Backface_Red;
+            this.pictureBoxBottom2.Location = new System.Drawing.Point(176, 83);
+            this.pictureBoxBottom2.Name = "pictureBoxBottom2";
+            this.pictureBoxBottom2.Size = new System.Drawing.Size(91, 125);
+            this.pictureBoxBottom2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxBottom2.TabIndex = 3;
+            this.pictureBoxBottom2.TabStop = false;
+            this.pictureBoxBottom2.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // pictureBoxTop2
+            // 
+            this.pictureBoxTop2.Image = global::M2Form.Properties.Resources._7_Clubs;
+            this.pictureBoxTop2.Location = new System.Drawing.Point(175, 83);
+            this.pictureBoxTop2.Name = "pictureBoxTop2";
+            this.pictureBoxTop2.Size = new System.Drawing.Size(92, 125);
+            this.pictureBoxTop2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxTop2.TabIndex = 2;
+            this.pictureBoxTop2.TabStop = false;
+            // 
+            // pictureBoxBottom1
+            // 
+            this.pictureBoxBottom1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxBottom1.Image")));
+            this.pictureBoxBottom1.Location = new System.Drawing.Point(40, 83);
+            this.pictureBoxBottom1.Name = "pictureBoxBottom1";
+            this.pictureBoxBottom1.Size = new System.Drawing.Size(86, 125);
+            this.pictureBoxBottom1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxBottom1.TabIndex = 1;
+            this.pictureBoxBottom1.TabStop = false;
+            this.pictureBoxBottom1.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBoxTop1
+            // 
+            this.pictureBoxTop1.Image = global::M2Form.Properties.Resources._3_Spades;
+            this.pictureBoxTop1.Location = new System.Drawing.Point(40, 83);
+            this.pictureBoxTop1.Name = "pictureBoxTop1";
+            this.pictureBoxTop1.Size = new System.Drawing.Size(86, 125);
+            this.pictureBoxTop1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxTop1.TabIndex = 0;
+            this.pictureBoxTop1.TabStop = false;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::M2Form.Properties.Resources._20231001;
+            this.ClientSize = new System.Drawing.Size(730, 450);
+            this.Controls.Add(this.labelCardName);
+            this.Controls.Add(this.labelDirections);
+            this.Controls.Add(this.buttonExit);
+            this.Controls.Add(this.buttonReset);
+            this.Controls.Add(this.pictureBoxBottom5);
+            this.Controls.Add(this.pictureBoxTop5);
+            this.Controls.Add(this.pictureBoxBottom4);
+            this.Controls.Add(this.pictureBoxTop4);
+            this.Controls.Add(this.pictureBoxBottom3);
+            this.Controls.Add(this.pictureBoxTop3);
+            this.Controls.Add(this.pictureBoxBottom2);
+            this.Controls.Add(this.pictureBoxTop2);
+            this.Controls.Add(this.pictureBoxBottom1);
+            this.Controls.Add(this.pictureBoxTop1);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBottom5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTop5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBottom4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTop4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBottom3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTop3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBottom2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTop2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBottom1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTop1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
-        // Reset the deck to hide the cards
-        private void buttonReset_Click(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
-            foreach (var card in topCards)
-            {
-                card.Image = null;  // Clear images (assuming you want to hide them)
-            }
-            label2.Text = "";  // Clear the second label text
+            throw new NotImplementedException();
         }
 
-        // Exit the application
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        #endregion
+
+        private System.Windows.Forms.PictureBox pictureBoxTop1;
+        private System.Windows.Forms.PictureBox pictureBoxBottom1;
+        private System.Windows.Forms.PictureBox pictureBoxTop2;
+        private System.Windows.Forms.PictureBox pictureBoxBottom2;
+        private System.Windows.Forms.PictureBox pictureBoxTop3;
+        private System.Windows.Forms.PictureBox pictureBoxBottom3;
+        private System.Windows.Forms.PictureBox pictureBoxTop4;
+        private System.Windows.Forms.PictureBox pictureBoxBottom4;
+        private System.Windows.Forms.PictureBox pictureBoxTop5;
+        private System.Windows.Forms.PictureBox pictureBoxBottom5;
+        private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Label labelDirections;
+        private System.Windows.Forms.Label labelCardName;
     }
 }
+
+
+
+
+
+
+
+cardImages = new List<Image>
+{
+    M2Form.Properties.Resources.Ace_Spades,    // Add your actual card images here
+    M2Form.Properties.Resources.Queen_Hearts,
+    M2Form.Properties.Resources._3_Spades,
+    M2Form.Properties.Resources._7_Clubs,
+    M2Form.Properties.Resources.Queen_Hearts,
+    M2Form.Properties.Resources._7_Clubs,
+    M2Form.Properties.Resources._3_Spades,
+    M2Form.Properties.Resources.Ace_Spades,
+    M2Form.Properties.Resources.King_Diamonds,
+    M2Form.Properties.Resources.King_Diamonds
+};
